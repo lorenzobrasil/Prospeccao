@@ -193,7 +193,7 @@ def leNomes():
     Lê os nomes contidos em um arquivo txt, remove os separadores (\n) e devolve uma lista em que cada elemento corresponde a um nome
     """
     nomes = []
-    arquivo = open(r"C:\Users\Lorenzo\Desktop\Nomes.txt", "r")
+    arquivo = open(r"Nomes.txt", "r")
     for nome in arquivo:
         nomes.append(nome)
     arquivo.close()
