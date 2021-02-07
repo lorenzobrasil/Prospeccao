@@ -1,10 +1,16 @@
 import time
 def main():
+    dia = time.asctime().split()
+    global data
+    data = "{}-{}".format(dia[2], dia[1])
+    
     """
     Essa é a função principal do programa, que irá retornar uma lista de emails com base em um input de nomes, em arquivo txt,um padrão especificado de email
     """
     padrao = int(input("""
-  Escolha o número correspondente a um padrão de email:
+    Crie um arquivo 'Nomes.txt' contendo cada um dos nomes a serem transformados em formato pré-definido de email.
+    
+    Feito isso, escolha o número correspondente ao padrão de email:
   
     1- [nome][sobrenome]@dominio
     2- [nome]_[sobrenome]@dominio
@@ -27,19 +33,12 @@ def main():
     19- [sobrenome][n]@dominio
   número: 
   """))
-    dominio = input("Domínio do email: ")
-    print()
-    print()
-    print("""
-  Agora você deve criar um arquivo de texto com o título Nomes e salvar no bloco de notas (no formato txt)
-  """)
     nomes = []
     nomes.extend(leNomes())
-
-    dia = time.asctime().split()
-    global data
-    data = "{}-{}".format(dia[2], dia[1])
+    dominio = input("Domínio do email: ".format(data))
     geraOutput(nomes, dominio, padrao)
+    
+    
 
 
 
@@ -128,8 +127,9 @@ def geraOutput(nomes, dominio, padrao):
     print("""
     Processo finalizado! =)
         
-    Arquivo -> NomesFeitos.txt
-    """)
+    Arquivo Output -> Lista de Emails {}.txt
+    """.format(data))
+    time.sleep(5)
 
 
 
